@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,100 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DiscountCalculatorII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgO-aD-KTG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ldL-QJ-RZG">
+                                        <rect key="frame" x="20" y="40" width="368.66666666666669" height="430.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Amount Before Discount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zAn-Im-JVx">
+                                                <rect key="frame" x="0.0" y="0.0" width="368.66666666666669" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="$0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-Kg-tm4">
+                                                <rect key="frame" x="0.0" y="80" width="368.66666666666669" height="62"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="42"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kO2-KW-aSW">
+                                                <rect key="frame" x="0.0" y="192" width="368.66666666666669" height="32"/>
+                                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="0.052680864729999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <segments>
+                                                    <segment title="5%"/>
+                                                    <segment title="10%"/>
+                                                    <segment title="15%"/>
+                                                    <segment title="20%"/>
+                                                    <segment title="25%"/>
+                                                    <segment title="30%"/>
+                                                    <segment title="35%"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="calculateDiscount:" destination="BYZ-38-t0r" eventType="valueChanged" id="jXJ-FP-uq4"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discount = $0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Cx-Kg-CQZ">
+                                                <rect key="frame" x="0.0" y="273" width="368.66666666666669" height="50.333333333333314"/>
+                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.057015196871232875" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="42"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total = $0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiS-25-CDj">
+                                                <rect key="frame" x="0.0" y="373.33333333333331" width="368.66666666666669" height="57.333333333333314"/>
+                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.059423159199999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="48"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="I45-h5-C8E" appends="YES" id="iP8-Y6-HDj"/>
+                                        </connections>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ldL-QJ-RZG" firstAttribute="width" secondItem="WgO-aD-KTG" secondAttribute="width" multiplier="0.890499" id="18R-w2-D4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="ldL-QJ-RZG" secondAttribute="trailing" constant="20" id="9cS-DK-Nq5"/>
+                                    <constraint firstAttribute="bottom" secondItem="ldL-QJ-RZG" secondAttribute="bottom" constant="265.33333333333331" id="HwZ-Lu-rX6"/>
+                                    <constraint firstItem="ldL-QJ-RZG" firstAttribute="leading" secondItem="WgO-aD-KTG" secondAttribute="leading" constant="20" id="Wmi-4C-C6h"/>
+                                    <constraint firstItem="ldL-QJ-RZG" firstAttribute="top" secondItem="WgO-aD-KTG" secondAttribute="top" constant="40" id="wDi-aj-EKL"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="mbA-BV-0dl"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="NGE-MP-TyV"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WgO-aD-KTG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a8H-3z-Rwv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WgO-aD-KTG" secondAttribute="bottom" id="fYZ-0m-v5o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WgO-aD-KTG" secondAttribute="trailing" id="iYs-gm-172"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="WgO-aD-KTG" secondAttribute="top" id="wtk-MY-agY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="discountAmtLabel" destination="6Cx-Kg-CQZ" id="BsK-YG-ujI"/>
+                        <outlet property="discountSegmentControl" destination="kO2-KW-aSW" id="D5e-eu-bS8"/>
+                        <outlet property="discountTextField" destination="KdK-Kg-tm4" id="dsK-og-M5a"/>
+                        <outlet property="discountTotal" destination="JiS-25-CDj" id="sSK-RT-SBV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="I45-h5-C8E">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="BYZ-38-t0r" id="Htz-fu-Ny1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.58695652173915"/>
         </scene>
     </scenes>
 </document>
